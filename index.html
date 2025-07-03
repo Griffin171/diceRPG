@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador de Dados RPG</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,
+  %3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E
+    %3Crect width='24' height='24' fill='%239b59b6' rx='4' ry='4'/%3E
+    %3Ccircle cx='12' cy='7' r='2' fill='white'/%3E
+    %3Ccircle cx='7' cy='12' r='2' fill='white'/%3E
+    %3Ccircle cx='17' cy='12' r='2' fill='white'/%3E
+    %3Ccircle cx='12' cy='17' r='2' fill='white'/%3E
+  %3C/svg%3E" type="image/svg+xml" />
+
+</head>
+<body>
+  <div class="container">
+    <h1>🎲 Simulador de Dados RPG</h1>
+
+    <section class="atributos">
+      <h2>Atributos</h2>
+      <div id="atributos-container"></div>
+    </section>
+
+    <section class="dados-unicos">
+      <h2>Dados Únicos</h2>
+      <div id="dados-unicos">
+        <!-- Botões de d4 a d100 -->
+      </div>
+    </section>
+
+    <section class="dano-complexo">
+      <h2>Rolagem de Dano Complexo</h2>
+      <input type="text" id="formula" placeholder="Ex: 1d10+1d6+2">
+      <label>
+        <input type="checkbox" id="precisa-ataque"> Precisa de ataque antes?
+      </label>
+      <div class="critico-config">
+        <label>Crítico a partir de: <input type="number" id="critico-num" value="20" min="1" max="20"></label>
+        <label>Multiplicador do Crítico: <input type="number" id="critico-multi" value="2" min="1"></label>
+      </div>
+      <button onclick="rolarFormula()">Rolar Dano</button>
+    </section>
+
+    <section class="historico">
+      <h2>Histórico de Rolagens</h2>
+      <ul id="historico"></ul>
+    </section>
+  </div>
+
+  <!-- Botão do menu mestre -->
+<div id="mestre-toggle" onclick="toggleMestre()">🎩 MESTRE</div>
+
+<!-- Painel lateral do mestre -->
+<div id="mestre-panel">
+  <h3>MESTRE</h3>
+  <div class="mestre-dano" id="mestre-dano-1"></div>
+  <div class="mestre-dano" id="mestre-dano-2"></div>
+  <div class="mestre-dano" id="mestre-dano-3"></div>
+</div>
+
+<!-- Caixa de Anotações -->
+<div id="caixa-anotacoes">
+    <div id="anotacoes-header">
+        📝 Anotações
+        <button id="minimizar-anotacoes" onclick="toggleAnotacoes()">−</button>
+    </div>
+        <div id="anotacoes-body">
+        <textarea id="bloco-anotacoes" placeholder="⚠ Salve suas anotações como .txt antes de sair do site."></textarea>
+        <button id="btn-salvar-txt" onclick="salvarAnotacoes()">💾 Salvar .txt</button>
+</div>
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>
